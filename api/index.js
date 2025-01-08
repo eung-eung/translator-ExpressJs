@@ -10,8 +10,7 @@ app.get('/', async (req, res) => {
     res.send("Express")
 })
 app.post('/', async (req, res) => {
-    console.log(req.body);
-    const { text } = await translate(req.body, { to: 'en' });
+    const { text } = await translate(req.body.text, { to: 'en' });
     res.send(text)
 })
 
