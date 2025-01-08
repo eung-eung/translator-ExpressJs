@@ -11,9 +11,7 @@ app.get('/', async (req, res) => {
 })
 app.post('/', async (req, res) => {
     console.log(req.body);
-
-    const { text } = await translate('Привет, мир! Как дела?', { to: 'en' });
-    console.log(text);
+    const { text } = await translate(req.body, { to: 'en' });
     res.send(text)
 })
 
