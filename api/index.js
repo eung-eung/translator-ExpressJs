@@ -7,11 +7,7 @@ const port = 3000
 
 app.use(
     bodyParser.json(),
-    cors({
-        origin: "http://localhost:3000",
-        optionsSuccessStatus: 200,
-        methods: ["POST"]
-    })
+    cors()
 )
 app.get('/', async (req, res) => {
     res.send("Express")
