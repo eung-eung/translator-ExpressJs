@@ -1,12 +1,19 @@
 import express from "express"
 import { translate } from "@vitalets/google-translate-api"
+import cors from "cors"
 import bodyParser from "body-parser"
 const app = express()
 const port = 3000
 
-app.use(bodyParser.json())
+app.use(
+    bodyParser.json(),
+    cors({
+        origin: "http://localhost:3000",
+        optionsSuccessStatus: 200,
+        methods: ["POST"]
+    })
+)
 app.get('/', async (req, res) => {
-
     res.send("Express")
 })
 app.post('/', async (req, res) => {
