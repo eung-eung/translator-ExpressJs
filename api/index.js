@@ -11,7 +11,7 @@ app.use(
 app.get('/', async (req, res) => {
     res.send("Express")
 })
-app.post('/', cors(), async (req, res) => {
+app.post('/', cors({ origin: "'http://localhost:3000'" }), async (req, res) => {
     const { text } = await translate(req.body.text, { to: 'en' });
     res.send(text)
 })
