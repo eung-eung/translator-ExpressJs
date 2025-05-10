@@ -6,13 +6,12 @@ const app = express()
 const port = 3000
 
 app.use(
-    bodyParser.json(),
-    cors()
+    bodyParser.json()
 )
 app.get('/', async (req, res) => {
     res.send("Express")
 })
-app.post('/', async (req, res) => {
+app.post('/', cors(), async (req, res) => {
     const { text } = await translate(req.body.text, { to: 'en' });
     res.send(text)
 })
